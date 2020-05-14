@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BusinessService.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BusinessService.Api.Controllers.SchoolsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.#ctor(BusinessService.Domain.Services.ISchoolsService,BusinessService.Api.Logger.ILog)">
+            <summary>
+            
+            </summary>
+            <param name="schoolsService"></param>
+            <param name="distributedCache"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.GetAllStudentsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.GetSchoolsAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.FindStudentsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="schoolName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.DeleteStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.AddStudentAsync(BusinessService.Data.DBModel.School)">
+            <summary>
+            
+            </summary>
+            <param name="school"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsController.UpdateStudentAsync(System.Int32,BusinessService.Data.DBModel.School)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="school"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Controllers.SchoolsV2Controller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.#ctor(BusinessService.Domain.Services.ISchoolsService,BusinessService.Api.Logger.ILog)">
+            <summary>
+            
+            </summary>
+            <param name="schoolsService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.GetAllStudentsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.GetSchoolsAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.FindStudentsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="schoolName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.DeleteStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.AddStudentAsync(BusinessService.Data.DBModel.School)">
+            <summary>
+            
+            </summary>
+            <param name="school"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.SchoolsV2Controller.UpdateStudentAsync(System.Int32,BusinessService.Data.DBModel.School)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="school"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Controllers.StudentsController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.#ctor(BusinessService.Domain.Services.IStudentsService,BusinessService.Api.Logger.ILog,Microsoft.Azure.Storage.Blob.CloudBlobClient)">
+            <summary>
+            
+            </summary>
+            <param name="studentsService"></param>
+            <param name="logger"></param>
+            <param name="cloudBlobClient"></param>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.GetAllStudentsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.GetStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.FindStudentsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="studentName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.DeleteStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.AddStudentAsync(BusinessService.Data.DBModel.Student)">
+            <summary>
+            
+            </summary>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsController.UpdateStudentAsync(System.Int32,BusinessService.Data.DBModel.Student)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Controllers.StudentsV2Controller">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.#ctor(BusinessService.Domain.Services.IStudentsService,BusinessService.Api.Logger.ILog)">
+            <summary>
+            
+            </summary>
+            <param name="studentsService"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.GetAllStudentsAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.GetStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.FindStudentsAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="studentName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.DeleteStudentAsync(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.AddStudentAsync(BusinessService.Data.DBModel.Student)">
+            <summary>
+            
+            </summary>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.StudentsV2Controller.UpdateStudentAsync(System.Int32,BusinessService.Data.DBModel.Student)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="student"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Controllers.WeatherForecastController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.WeatherForecastController.#ctor(Microsoft.Extensions.Logging.ILogger{BusinessService.Api.Controllers.WeatherForecastController})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BusinessService.Api.Controllers.WeatherForecastController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Extensions.ErrorDetails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.Extensions.ErrorDetails.StatusCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.Extensions.ErrorDetails.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Extensions.ErrorDetails.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Extensions.ExceptionMiddlewareExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Extensions.ExceptionMiddlewareExtensions.ConfigureExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder,BusinessService.Api.Logger.ILog)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="T:BusinessService.Api.FileUploadOperation.FileContentType">
+            <summary>
+            Indicates swashbuckle should consider the parameter as a file upload
+            </summary>
+        </member>
+        <member name="T:BusinessService.Api.Logger.ILog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Logger.ILog.Information(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.ILog.Warning(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.ILog.Debug(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.ILog.Error(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:BusinessService.Api.Logger.LogNLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Logger.LogNLog.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Logger.LogNLog.Information(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.LogNLog.Warning(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.LogNLog.Debug(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:BusinessService.Api.Logger.LogNLog.Error(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="T:BusinessService.Api.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:BusinessService.Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BusinessService.Api.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:BusinessService.Api.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BusinessService.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,BusinessService.Api.Logger.ILog)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="T:BusinessService.Api.Validation.SchoolValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Validation.SchoolValidator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BusinessService.Api.Validation.StudentValidator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BusinessService.Api.Validation.StudentValidator.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BusinessService.Api.WeatherForecast">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.WeatherForecast.Date">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.WeatherForecast.TemperatureC">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.WeatherForecast.TemperatureF">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BusinessService.Api.WeatherForecast.Summary">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
