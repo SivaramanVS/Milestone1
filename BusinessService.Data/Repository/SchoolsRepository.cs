@@ -113,7 +113,7 @@ namespace BusinessService.Data.Repository
 
         class Settings
         {
-            public int PricesExpirationPeriod = 1;       //15 minutes by default
+            public int PricesExpirationPeriod = 1;       //1 minutes by default
 
             public Settings(IConfiguration configuration)
             {
