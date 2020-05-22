@@ -9,9 +9,7 @@ namespace BusinessService.Data.DBModel
         [Required]
         public string Name { get; set; }
         public string Gender { get; set; }
-
-        //public int? SchoolRefId { get; set; }
-
+        
         [ForeignKey("SchoolRefId")] public int School { get; set; }
     }
 }

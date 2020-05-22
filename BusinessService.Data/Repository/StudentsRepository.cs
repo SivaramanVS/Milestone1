@@ -8,10 +8,7 @@ namespace BusinessService.Data.Repository
 {
     public class StudentsRepository : IStudentsRepository
     {
-        private readonly DefaultContext _context;
-
-
-        // private EntityEntry<Student> _entityEntry;
+        private readonly DefaultContext _context;        
 
 
         public StudentsRepository(DefaultContext context)
@@ -29,9 +26,9 @@ namespace BusinessService.Data.Repository
             return await _context.Students.Where(p => p.StudentId == studentId).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Student>> FindStudentsAsync(string name)
+        public async Task<IEnumerable<Student>> FindStudentsAsync(string sku)
         {
-            return await _context.Students.Where(p => p.Name.Contains(name)).ToListAsync();
+            return await _context.Students.Where(p => p.Name.Contains(sku)).ToListAsync();
         }
 
         public async Task<Student> DeleteStudentAsync(int studentId)
@@ -67,8 +64,7 @@ namespace BusinessService.Data.Repository
             {
                 studentId.Name = student.Name;
                 studentId.Gender = student.Gender;
-                studentId.School = student.School;
-                //  studentId.School.Name = student.School.Name;
+                studentId.School = student.School;                
                 await _context.SaveChangesAsync();
             }
 

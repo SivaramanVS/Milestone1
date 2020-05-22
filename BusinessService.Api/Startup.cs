@@ -22,6 +22,9 @@ using NLog;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using BusinessService.Domain.Helpers;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BusinessService.Api
 {
@@ -53,6 +56,12 @@ namespace BusinessService.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+
+            // configure jwt authentication
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             services.AddSingleton<ILog, LogNLog>();
             services.AddDbContext<DefaultContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -60,6 +69,8 @@ namespace BusinessService.Api
             services.AddScoped<ISchoolsRepository, SchoolsRepository>();
             services.AddTransient<IStudentsService, StudentsService>();
             services.AddTransient<ISchoolsService, SchoolsService>();
+            services.AddScoped<ISchoolManagementService, SchoolManagementService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddCors(
                 options => options.AddPolicy("AllowCors",
@@ -70,18 +81,9 @@ namespace BusinessService.Api
                             //.WithOrigins("http://localhost:4456", "http://localhost:4457") 
                             //AllowMultipleOrigins;
                             .AllowAnyOrigin() //AllowAllOrigins;
+                        
+                        .AllowAnyMethod() //AllowAllMethods;                        
 
-                        //.WithMethods("GET") //AllowSpecificMethods;
-                        //.WithMethods("GET", "PUT") //AllowSpecificMethods;
-                        //.WithMethods("GET", "PUT", "POST") 
-                        //AllowSpecificMethods;
-                        //  .WithMethods("GET", "PUT", "POST", "DELETE")
-                        //AllowSpecificMethods;
-                        .AllowAnyMethod() //AllowAllMethods;
-
-                        //.WithHeaders("Accept", 
-                        //"Content-type", "Origin", "X-Custom-Header");  
-                        //AllowSpecificHeaders;
                         .AllowAnyHeader(); //AllowAllHeaders;
                     })
             );
@@ -96,7 +98,6 @@ namespace BusinessService.Api
 
 
             services.AddSession();
-
 
 
             services.AddSwaggerGen(c =>
@@ -115,11 +116,6 @@ namespace BusinessService.Api
                     Description = "v2 API Description"
                 }
                 );
-
-
-
-
-
 
                 c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
@@ -174,11 +170,20 @@ namespace BusinessService.Api
             {
                 options.Authority = "https://azureschoolsapi.auth0.com/";
                 options.Audience = "https://localhost:44310/";
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
             });
 
             services.AddDistributedRedisCache(option =>
             {
-                option.Configuration = Configuration["ConnectionStrings:Redis"]; ;
+                option.Configuration = Configuration["ConnectionStrings:Redis"];
                 option.InstanceName = "iboredisapp";
             });
             services.AddSingleton(sp => CloudStorageAccount.Parse(Configuration["ConnectionStrings:Blob"]).CreateCloudBlobClient());
@@ -234,17 +239,21 @@ namespace BusinessService.Api
             app.ConfigureExceptionHandler(logger);
             app.UseHttpsRedirection();
             //Enable CORS policy "AllowCors"
-            app.UseCors("AllowCors");
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseRouting();
             app.UseAuthentication();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => 
+            { 
+                endpoints.MapControllers(); 
+            });
 
         }
     }
-
-
 }

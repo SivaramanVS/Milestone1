@@ -17,12 +17,12 @@ namespace BusinessService.Domain.Services
 
         }
 
-        public async Task<IActionResult> AddSchoolsAsync(School schools)
+        public async Task<IActionResult> AddSchoolsAsync(School schoolsId)
         {
             try
             {
-                var schoolList = await _schoolsRepository.AddSchoolsAsync(schools);
-                if (schools != null)
+                var schoolList = await _schoolsRepository.AddSchoolsAsync(schoolsId);
+                if (schoolsId != null)
                     return new OkObjectResult(new SchoolViewModel
                     {
                         Name = schoolList.Name.Trim()
@@ -102,11 +102,11 @@ namespace BusinessService.Domain.Services
             }
         }
 
-        public async Task<IActionResult> GetSchoolsAsync(int studentId)
+        public async Task<IActionResult> GetSchoolsAsync(int schoolId)
         {
             try
             {
-                var school = await _schoolsRepository.GetSchoolsAsync(studentId);
+                var school = await _schoolsRepository.GetSchoolsAsync(schoolId);
 
                 if (school != null)
                     return new OkObjectResult(new SchoolViewModel
@@ -142,7 +142,4 @@ namespace BusinessService.Domain.Services
             }
         }
     }
-
-
-
 }

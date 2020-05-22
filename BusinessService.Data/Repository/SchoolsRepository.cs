@@ -45,16 +45,16 @@ namespace BusinessService.Data.Repository
 
         }
 
-        public async Task<School> AddSchoolsAsync(School schools)
+        public async Task<School> AddSchoolsAsync(School schoolsId)
         {
-            if (schools != null)
+            if (schoolsId != null)
             {
-                await _context.Schools.AddAsync(schools);
+                await _context.Schools.AddAsync(schoolsId);
 
                 await _context.SaveChangesAsync();
             }
 
-            return schools;
+            return schoolsId;
         }
 
         public async Task<School> DeleteSchoolsAsync(int schoolsId)
@@ -113,7 +113,7 @@ namespace BusinessService.Data.Repository
 
         class Settings
         {
-            public int PricesExpirationPeriod = 1;       //1 minutes by default
+            public int PricesExpirationPeriod = 1;       //15 minutes by default
 
             public Settings(IConfiguration configuration)
             {

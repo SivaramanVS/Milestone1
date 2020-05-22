@@ -2,7 +2,7 @@
 using BusinessService.Data.DBModel;
 using BusinessService.Domain.Services;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc; //using BusinessService..Domain.Services;
+using Microsoft.AspNetCore.Mvc; 
 using Microsoft.Extensions.Caching.Distributed;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace BusinessService.Api.Controllers
     /// </summary>
     [ApiVersion("1")]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]    
     [ApiController]
     public class SchoolsController : ControllerBase
     {
@@ -34,15 +34,15 @@ namespace BusinessService.Api.Controllers
             _schoolsService = schoolsService;
             this._logger = logger ?? new LogNLog();
 
-
         }
+       
 
         // GET /api/Schools
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        
         [HttpGet]
         public async Task<IActionResult> GetAllStudentsAsync()
         {
@@ -55,8 +55,7 @@ namespace BusinessService.Api.Controllers
                 _logger.Information("Data Fetched Successfully ");
 
             }
-            return school;
-            
+            return school;            
 
         }
 
@@ -79,7 +78,9 @@ namespace BusinessService.Api.Controllers
         /// 
         /// </summary>
         /// <param name="schoolName"></param>
-        /// <returns></returns>        
+        /// <returns></returns>   
+        ///
+        [Authorize]
         [HttpGet]
         [Route("FindByName")]
         public async Task<IActionResult> FindStudentsAsync(string schoolName)

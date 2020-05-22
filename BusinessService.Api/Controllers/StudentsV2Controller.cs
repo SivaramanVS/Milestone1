@@ -11,7 +11,7 @@ namespace BusinessService.Api.Controllers
     /// </summary>
     [ApiVersion("2")]
     [ApiExplorerSettings(GroupName = "v2")]
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class StudentsV2Controller : Controller
     {

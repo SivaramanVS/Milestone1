@@ -2,21 +2,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.ServiceBus;
+
 
 namespace BusinessService.Api
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Program
+    public static class Program
     {
-        const string ServiceBusConnectionString = "<your_connection_string>";
-        const string QueueName = "<your_queue_name>";
-        static IQueueClient queueClient;
+        
 
         /// <summary>
         /// 
@@ -41,7 +36,10 @@ namespace BusinessService.Api
                     logging.AddDebug();
                     logging.AddNLog();
                 })
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });            
         }
     }
 }

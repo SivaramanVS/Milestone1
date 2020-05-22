@@ -16,11 +16,11 @@ namespace BusinessService.Domain.Services
             _studentsRepository = studentsRepository;
         }
 
-        public async Task<IActionResult> FindStudentsAsync(string name)
+        public async Task<IActionResult> FindStudentsAsync(string sku)
         {
             try
             {
-                var students = await _studentsRepository.FindStudentsAsync(name);
+                var students = await _studentsRepository.FindStudentsAsync(sku);
 
                 if (students != null)
                     return new OkObjectResult(students.Select(p => new StudentViewModel

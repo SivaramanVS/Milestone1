@@ -10,8 +10,7 @@ namespace BusinessService.Api.Extensions
     /// 
     /// </summary>
     public static class ExceptionMiddlewareExtensions
-    {
-        //private static readonly ILog _logger;
+    {        
 
         /// <summary>
         /// 

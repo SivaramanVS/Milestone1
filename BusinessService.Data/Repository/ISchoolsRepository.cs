@@ -7,7 +7,6 @@ namespace BusinessService.Data.Repository
     public interface ISchoolsRepository
     {
         Task<School> GetSchoolsAsync(int schoolsId);
-
         Task<IEnumerable<School>> GetAllSchoolsAsync();
         Task<IEnumerable<School>> FindSchoolsAsync(string schoolName);
         Task<School> AddSchoolsAsync(School schoolsId);

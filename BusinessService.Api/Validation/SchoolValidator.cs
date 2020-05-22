@@ -12,8 +12,7 @@ namespace BusinessService.Api.Validation
         /// 
         /// </summary>
         public SchoolValidator()
-        {
-            //RuleFor(x => x.).NotNull();
+        {            
             RuleFor(x => x.Name).NotEmpty().WithMessage("name cannot be empty");
             RuleFor(x => x.Name).Length(0, 50).WithMessage(x => $"name {x.Name} exceeds the max length.");
         }

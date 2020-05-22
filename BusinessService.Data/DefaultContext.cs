@@ -11,5 +11,7 @@ namespace BusinessService.Data
 
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<School> Schools { get; set; }
+
+
     }
 }
